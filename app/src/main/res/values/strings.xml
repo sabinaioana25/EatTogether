@@ -1,5 +1,29 @@
 <resources>
     <string name="app_name">EatTogether</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!-- Login Fragment strings   -->
+    <string name="tv_email">Enter your email</string>
+    <string name="tv_password">Enter your password</string>
+    <string name="btn_login">Log In</string>
+    <string name="tv_hint_email">Email</string>
+    <string name="tv_hint_password">Password</string>
+    <string name="tv_hint_retype_password">Retype password</string>
+    <string name="cb_remember">Remember me</string>
+    <string name="cb_updates">Sign up for email updates</string>
+    <string name="tv_link_signup">Click here to create an account</string>
+
+<!--  Signup Fragment strings  -->
+    <string name="tv_name">Full name</string>
+    <string name="tv_hint_name">Enter your name here</string>
+
+<!-- Facebook authentication strings -->
+    <string name="facebook_app_id">1424404151302953</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">0b3b7afa1c044d0a19fc92538adc0c10</string>
+
+<!--  Alert Dialog -->
+    <string name="account_confirmation">Account successfully created</string>
+    <string name="btn_to_login">Back to login</string>
+    <string name="btn_signup">Sign Up</string>
 </resources>
