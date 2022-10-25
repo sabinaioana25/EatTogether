@@ -68,10 +68,9 @@ class SignupFragment : Fragment() {
                         if (task.isSuccessful) {
                             Log.d(TAG, "created user successfully")
                             val user = auth.currentUser
-//                            dialog.show()
-//                            dialog.window?.setBackgroundDrawableResource(android.R.color.darker_gray)
-//                            dialog.setCancelable(false)
-
+                            dialog.show()
+                            dialog.window?.setBackgroundDrawableResource(android.R.color.darker_gray)
+                            dialog.setCancelable(false)
                         }
                         else {
                             Log.d(TAG, "failed to create user")
