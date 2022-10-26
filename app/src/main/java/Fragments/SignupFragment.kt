@@ -1,5 +1,6 @@
 package Fragments
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -70,50 +72,49 @@ class SignupFragment : Fragment() {
                             val user = auth.currentUser
                             dialog.show()
                             dialog.window?.setBackgroundDrawableResource(android.R.color.darker_gray)
+                            dialog.getButton(1).setOnClickListener {
+                                Navigation.createNavigateOnClickListener(R.id.action_signupFragment_to_loginFragment)
+                            }
+
+
                             dialog.setCancelable(false)
+
                         }
                         else {
                             Log.d(TAG, "failed to create user")
                         }
                     }
+
+
             }
+
         }
         auth =  FirebaseAuth.getInstance()
     }
 
     private fun validateForm(): Boolean {
         var valid = true
-
         val name = binding.etPersonName.text.toString()
-        if (TextUtils.isEmpty(name)) {
-            binding.etPersonName.error = "Required"
-            valid = false
-        } else {
-            binding.etPersonName.error = null
-        }
-
         val email = binding.etEmailAddress.text.toString()
-        if (TextUtils.isEmpty(email)) {
-            binding.etEmailAddress.error = "Required"
-            valid = false
-        } else {
-            binding.etEmailAddress.error = null
-        }
-
         val password = binding.etPassword.text.toString()
-        if (TextUtils.isEmpty(password) || password.length < 8) {
+        val retypePassword = binding.etRetypePassword.text.toString()
+
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) ||  TextUtils.isEmpty(password)) {
+            binding.etPersonName.error = "Required"
+            binding.etEmailAddress.error = "Required"
             binding.etPassword.error = "Password must be at least 8 characters long"
             valid = false
         } else {
+            binding.etPersonName.error = null
+            binding.etEmailAddress.error = null
             binding.etPassword.error = null
-        }
 
-        val retypePassword = binding.etRetypePassword.text.toString()
-        if (retypePassword != password) {
-            binding.etRetypePassword.error = "Password doesn't match"
-            valid = false
-        } else {
-            binding.etRetypePassword.error = null
+            if (TextUtils.isEmpty(retypePassword) || retypePassword != password)  {
+                binding.etRetypePassword.error = "Password must match"
+                valid = false
+            } else {
+                binding.etRetypePassword.error = null
+            }
         }
         return valid
     }
