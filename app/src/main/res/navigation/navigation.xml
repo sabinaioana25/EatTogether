@@ -15,7 +15,8 @@
         </action>
         <action
             android:id="@+id/action_loginFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -24,7 +25,8 @@
         tools:layout="@layout/fragment_signup" >
         <action
             android:id="@+id/action_signupFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
         <argument
             android:name="myArg"
             app:argType="string"
