@@ -1,16 +1,26 @@
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="Fragments.SignupFragment"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.signup.SignupFragment"
     tools:viewBindingIgnore="true">
+
+    <data>
+
+        <variable
+            name="varSignUpViewModel"
+            type="com.example.eattogether.fragments.signup.SignupViewModel" />
+
+        <variable
+            name="varUserData"
+            type="com.example.eattogether.utils.UserData" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/logo"
             android:layout_width="372dp"
             android:layout_height="243dp"
             android:layout_marginTop="32dp"
@@ -20,88 +30,53 @@
             app:srcCompat="@drawable/ic_launcher_background"
             tools:ignore="ImageContrastCheck" />
 
-        <EditText
-            android:id="@+id/etPersonName"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/containerEmail"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/tv_hint_name"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toBottomOf="@+id/logo">
 
-        <EditText
-            android:id="@+id/etEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:hint="@string/tv_hint_email"
-            android:inputType="textWebEmailAddress|textAutoComplete|textEmailAddress"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="@+id/etPersonName"
-            app:layout_constraintStart_toStartOf="@+id/etPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/etPersonName"
-            android:importantForAutofill="no" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:text="@{varUserData.component1()}"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/containerPassword"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:hint="@string/tv_hint_password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="@+id/etEmailAddress"
-            app:layout_constraintStart_toStartOf="@+id/etEmailAddress"
-            app:layout_constraintTop_toBottomOf="@+id/etEmailAddress"
-            android:importantForAutofill="no" />
-
-        <EditText
-            android:id="@+id/et_retype_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:hint="@string/tv_hint_retype_password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/et_password"
-            app:layout_constraintStart_toStartOf="@+id/et_password"
-            app:layout_constraintTop_toBottomOf="@+id/et_password"
-            android:importantForAutofill="no" />
-
-        <CheckBox
-            android:id="@+id/signup_checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/cb_updates"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_retype_password" />
+            app:layout_constraintEnd_toEndOf="@+id/containerEmail"
+            app:layout_constraintStart_toStartOf="@+id/containerEmail"
+            app:layout_constraintTop_toBottomOf="@id/containerEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:text="@{varUserData.component2()}"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="@string/btn_signup"
+            android:onClick="@{() -> varSignUpViewModel.startedSignupNavigation()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signup_checkBox"
-            android:onClick="yes"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

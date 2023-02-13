@@ -1,4 +1,4 @@
-package Fragments
+package com.example.eattogether.fragments.alerts
 
 import android.app.Dialog
 import android.content.DialogInterface

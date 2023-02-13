@@ -1,4 +1,4 @@
-package Fragments
+package com.example.eattogether.fragments.friends
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

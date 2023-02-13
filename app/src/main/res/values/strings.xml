@@ -14,9 +14,8 @@
     <string name="tv_link_signup">Click here to create an account</string>
 
 <!--  Signup Fragment strings  -->
-    <string name="tv_name">Full name</string>
-    <string name="tv_hint_name">Enter your name here</string>
-
+    <string name="tvEmail"></string>
+    <string name="tvHintEmail"></string>
 <!-- Facebook authentication strings -->
     <string name="facebook_app_id">1424404151302953</string>
     <string name="fb_login_protocol_scheme">fb1234</string>

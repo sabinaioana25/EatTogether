@@ -3,13 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="Fragments.LoginFragment">
+    tools:context=".fragments.login.LoginFragment">
+
+    <data>
+
+        <variable
+            name="varLogInViewModel"
+            type="com.example.eattogether.fragments.login.LoginViewModel" />
+
+        <variable
+            name="varUserData"
+            type="com.example.eattogether.utils.UserData" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/logo"
             android:layout_width="372dp"
             android:layout_height="245dp"
             android:layout_marginTop="32dp"
@@ -31,7 +42,7 @@
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <EditText
             android:id="@+id/et_password"
@@ -66,6 +77,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="140dp"
             android:text="@string/btn_login"
+            android:onClick="@{() -> varLogInViewModel.startedLoginNavigation()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/et_password"
             app:layout_constraintHorizontal_bias="0.406"
@@ -79,6 +91,7 @@
             android:layout_height="26dp"
             android:layout_marginTop="8dp"
             android:text="@string/tv_link_signup"
+            android:onClick="@{() -> varLogInViewModel.startedLoginNavigation()}"
             android:textColor="#1976D2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
