@@ -45,9 +45,6 @@ class LoginFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             varLogInViewModel = loginViewModel
-            btSignup.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
-            }
         }
         loginViewModel.navigateToMap.observe(viewLifecycleOwner) {
             if (it) {
