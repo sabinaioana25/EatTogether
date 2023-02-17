@@ -22,7 +22,7 @@ import kotlin.math.*
  * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-@Suppress("COMPATIBILITY_WARNING")
+@Suppress("COMPATIBILITY_WARNING", "DEPRECATION")
 class LoginFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
@@ -45,8 +45,11 @@ class LoginFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             varLogInViewModel = loginViewModel
+            btSignup.setOnClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+            }
         }
-        loginViewModel.navigate.observe(viewLifecycleOwner) {
+        loginViewModel.navigateToMap.observe(viewLifecycleOwner) {
             if (it) {
                 if (validEmail(
                         binding.etEmail.text.toString().trim()
@@ -56,10 +59,14 @@ class LoginFragment : Fragment() {
                         binding.etPassword.text.toString().trim()
                     )
                     findNavController().navigate(R.id.action_loginFragment_to_mapFragment)
-                    loginViewModel.stoppedLoginNavigation()
+                    loginViewModel.onFragmentNagivated()
                 }
-//                findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
-//                loginViewModel.stoppedLoginNavigation()
+            }
+        }
+        loginViewModel.navigateToSignup.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+                loginViewModel.onFragmentNagivated()
             }
         }
         return binding.root

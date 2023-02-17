@@ -2,6 +2,7 @@ package com.example.eattogether.fragments.login
 
 import android.app.*
 import androidx.lifecycle.*
+import androidx.navigation.*
 import com.google.firebase.auth.FirebaseAuth
 import timber.log.*
 
@@ -9,8 +10,10 @@ class LoginViewModel(
     val app: Application
 ) : AndroidViewModel(app) {
 
-    private val _navigate = MutableLiveData<Boolean>()
-    val navigate: LiveData<Boolean> get() = _navigate
+    private val _navigateToMap = MutableLiveData<Boolean>()
+    val navigateToMap: LiveData<Boolean> get() = _navigateToMap
+    private val _navigateToSignup = MutableLiveData<Boolean>()
+    val navigateToSignup: LiveData<Boolean> get() = _navigateToSignup
 
     fun authLogIn(
         email: String, password: String
@@ -29,11 +32,16 @@ class LoginViewModel(
             }
     }
 
-    fun startedLoginNavigation() {
-        _navigate.value = true
+    fun onButtonLoginClick() {
+        _navigateToMap.value = true
     }
 
-    fun stoppedLoginNavigation() {
-        _navigate.value = false
+    fun onFragmentNagivated() {
+        _navigateToMap.value = false
+        _navigateToSignup.value = false
+    }
+
+    fun onButtonSignupClick() {
+        _navigateToSignup.value = true
     }
 }
