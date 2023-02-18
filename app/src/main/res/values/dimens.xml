@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="width_image">372dp</dimen>
+    <dimen name="height_image">245dp</dimen>
+    <dimen name="margin_medium">32dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+    <dimen name="margin_large">48dp</dimen>
+    <dimen name="width_edit_text">240dp</dimen>
+    <dimen name="margin_extra_small">8dp</dimen>
+</resources>

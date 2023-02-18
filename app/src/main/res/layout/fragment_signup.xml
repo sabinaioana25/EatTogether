@@ -5,7 +5,6 @@
     tools:viewBindingIgnore="true">
 
     <data>
-
         <variable
             name="varSignUpViewModel"
             type="com.example.eattogether.fragments.signup.SignupViewModel" />
@@ -17,13 +16,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:paddingTop="@dimen/margin_large">
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="372dp"
-            android:layout_height="243dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,34 +32,34 @@
             tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/containerEmail"
-            android:layout_width="240dp"
+            android:id="@+id/containerEmailSignup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/editTextEmailSignup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:text="@{varUserData.component1()}"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:text="@{varUserData.component1()}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/containerPassword"
-            android:layout_width="240dp"
+            android:id="@+id/containerPasswordSignup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/containerEmail"
-            app:layout_constraintStart_toStartOf="@+id/containerEmail"
-            app:layout_constraintTop_toBottomOf="@id/containerEmail">
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="@+id/containerEmailSignup"
+            app:layout_constraintStart_toStartOf="@+id/containerEmailSignup"
+            app:layout_constraintTop_toBottomOf="@id/containerEmailSignup">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/editTextPasswordSignup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -68,15 +69,14 @@
 
         <Button
             android:id="@+id/btn_signup"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/btn_signup"
+            android:layout_marginTop="16dp"
             android:onClick="@{() -> varSignUpViewModel.startedSignupNavigation()}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/btn_signup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerPasswordSignup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

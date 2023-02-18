@@ -49,11 +49,11 @@ class LoginFragment : Fragment() {
         loginViewModel.navigateToMap.observe(viewLifecycleOwner) {
             if (it) {
                 if (validEmail(
-                        binding.etEmail.text.toString().trim()
-                    ) && validPassword(binding.etPassword.toString().trim())) {
+                        binding.editTextEmailLogin.text.toString().trim()
+                    ) && validPassword(binding.editTextPasswordLogin.toString().trim())) {
                     loginViewModel.authLogIn(
-                        binding.etEmail.text.toString().trim(),
-                        binding.etPassword.text.toString().trim()
+                        binding.editTextEmailLogin.text.toString().trim(),
+                        binding.editTextPasswordLogin.text.toString().trim()
                     )
                     findNavController().navigate(R.id.action_loginFragment_to_mapFragment)
                     loginViewModel.onFragmentNagivated()

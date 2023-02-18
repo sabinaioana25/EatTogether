@@ -44,11 +44,11 @@ class SignupFragment : Fragment() {
         signupViewModel.navigateToLogin.observe(viewLifecycleOwner) {
             if (it) {
                 if (validEmail(
-                        binding.editTextEmail.text.toString().trim()
-                    ) && validPassword(binding.editTextPassword.text.toString().trim())) {
+                        binding.editTextEmailSignup.text.toString().trim()
+                    ) && validPassword(binding.editTextPasswordSignup.text.toString().trim())) {
                     signupViewModel.authSignUp(
-                        binding.editTextEmail.text.toString().trim(),
-                        binding.editTextPassword.text.toString().trim()
+                        binding.editTextEmailSignup.text.toString().trim(),
+                        binding.editTextPasswordSignup.text.toString().trim()
                     )
                     findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
                     signupViewModel.stoppedSignupNavigation()
