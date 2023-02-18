@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_image"
             app:layout_constraintBottom_toTopOf="@+id/containerEmailLogin"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEndoEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_background" />
@@ -36,7 +36,7 @@
             android:id="@+id/containerEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/margin_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logo">
@@ -76,12 +76,9 @@
             android:layout_marginTop="@dimen/margin_small"
             android:onClick="@{() -> varLogInViewModel.onButtonLoginClick()}"
             android:text="@string/btn_login"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/containerPasswordLogin"
-            app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="@+id/containerPasswordLogin"
-            app:layout_constraintTop_toBottomOf="@+id/containerPasswordLogin"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/containerPasswordLogin" />
 
         <TextView
             android:id="@+id/btn_signup"
@@ -92,7 +89,6 @@
             android:text="@string/tv_link_signup"
             android:textColor="@color/color_link"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 

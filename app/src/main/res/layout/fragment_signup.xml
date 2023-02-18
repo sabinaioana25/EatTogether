@@ -5,6 +5,7 @@
     tools:viewBindingIgnore="true">
 
     <data>
+
         <variable
             name="varSignUpViewModel"
             type="com.example.eattogether.fragments.signup.SignupViewModel" />
@@ -35,7 +36,7 @@
             android:id="@+id/containerEmailSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/margin_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo">
@@ -63,15 +64,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:text="@{varUserData.component2()}"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="@{varUserData.component2()}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_small"
             android:onClick="@{() -> varSignUpViewModel.startedSignupNavigation()}"
             android:text="@string/btn_signup"
             app:layout_constraintEnd_toEndOf="parent"
