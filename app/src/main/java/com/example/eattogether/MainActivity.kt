@@ -2,14 +2,11 @@ package com.example.eattogether
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.*
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.*
 import androidx.navigation.*
 import androidx.navigation.fragment.*
 import androidx.navigation.ui.*
 import com.example.eattogether.databinding.ActivityMainBinding
-import com.example.eattogether.utils.*
 import timber.log.*
 
 class MainActivity : AppCompatActivity() {

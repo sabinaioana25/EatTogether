@@ -6,6 +6,7 @@ import android.util.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -32,7 +33,8 @@ class SignupFragment : Fragment() {
     ): View {
         signupViewModel = ViewModelProvider(
             this, ViewModelFactory(
-                requireActivity().application)
+                requireActivity().application
+            )
         )[SignupViewModel::class.java]
 
         // Inflate the signup layout for this fragment
@@ -43,9 +45,8 @@ class SignupFragment : Fragment() {
         }
         signupViewModel.navigateToLogin.observe(viewLifecycleOwner) {
             if (it) {
-                if (validEmail(
-                        binding.editTextEmailSignup.text.toString().trim()
-                    ) && validPassword(binding.editTextPasswordSignup.text.toString().trim())) {
+                if (validEmail(binding.editTextEmailSignup.text.toString()) &&
+                    validPassword(binding.editTextPasswordSignup.text.toString())) {
                     signupViewModel.authSignUp(
                         binding.editTextEmailSignup.text.toString().trim(),
                         binding.editTextPasswordSignup.text.toString().trim()
@@ -53,6 +54,7 @@ class SignupFragment : Fragment() {
                     findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
                     signupViewModel.stoppedSignupNavigation()
                 }
+                else Timber.i("incorrect email or password format")
             }
         }
         return binding.root

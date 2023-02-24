@@ -11,7 +11,6 @@ class SignupViewModel(
 
     private val _navigateToLogin = MutableLiveData<Boolean>()
     val navigateToLogin: LiveData<Boolean> get() = _navigateToLogin
-
     fun authSignUp(
         email: String, password: String
     ) {
@@ -19,7 +18,7 @@ class SignupViewModel(
             email, password
         ).addOnCompleteListener {
             if (!it.isSuccessful) {
-                Timber.i("created user successfully + ${FirebaseAuth.getInstance().currentUser}" + "$email" + "$password")
+                Timber.i("created user successfully + ${FirebaseAuth.getInstance().currentUser}$email$password")
                 return@addOnCompleteListener
             }
         }

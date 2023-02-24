@@ -25,4 +25,7 @@
     <string name="account_confirmation">Account successfully created</string>
     <string name="btn_to_login">Back to login</string>
     <string name="btn_signup">Sign Up</string>
+    <string name="f_signup">Create new account</string>
+    <string name="f_login">Welcome back</string>
+    <string name="f_maps">Map</string>
 </resources>

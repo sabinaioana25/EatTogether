@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.eattogether.fragments.login.LoginFragment"
-        android:label="fragment_login"
+        android:label="@string/f_login"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_signupFragment"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.example.eattogether.fragments.signup.SignupFragment"
-        android:label="fragment_signup"
+        android:label="@string/f_signup"
         tools:layout="@layout/fragment_signup">
         <action
             android:id="@+id/action_signupFragment_to_loginFragment"
@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.eattogether.fragments.map.MapFragment"
-        android:label="fragment_map"
+        android:label="@string/f_maps"
         tools:layout="@layout/fragment_map" />
 </navigation>
 

@@ -1,33 +1,22 @@
 package com.example.eattogether.fragments.login
 
-import android.os.*
-import android.text.*
-import android.util.*
+import android.os.Bundle
 import android.view.*
-import android.widget.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.*
 import androidx.lifecycle.*
-import androidx.navigation.*
 import androidx.navigation.fragment.*
 import com.example.eattogether.R
 import com.example.eattogether.databinding.*
 import com.example.eattogether.utils.*
-import com.google.firebase.auth.*
 import timber.log.*
-import kotlin.math.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 @Suppress("COMPATIBILITY_WARNING", "DEPRECATION")
 class LoginFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
 
-    // initialize viewbinding
+    // initialize viewBinding
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = _binding!!
 
@@ -46,24 +35,23 @@ class LoginFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             varLogInViewModel = loginViewModel
         }
-        loginViewModel.navigateToMap.observe(viewLifecycleOwner) {
+        loginViewModel.navigateToMap.observe(viewLifecycleOwner) { it ->
             if (it) {
-                if (validEmail(
-                        binding.editTextEmailLogin.text.toString().trim()
-                    ) && validPassword(binding.editTextPasswordLogin.toString().trim())) {
+                if (validEmail(binding.editTextEmailLogin.text.toString().trim()) &&
+                    validPassword(binding.editTextPasswordLogin.text.toString().trim())) {
                     loginViewModel.authLogIn(
                         binding.editTextEmailLogin.text.toString().trim(),
                         binding.editTextPasswordLogin.text.toString().trim()
                     )
                     findNavController().navigate(R.id.action_loginFragment_to_mapFragment)
                     loginViewModel.onFragmentNagivated()
-                }
+                } else Timber.i("incorrect email or password")
             }
-        }
-        loginViewModel.navigateToSignup.observe(viewLifecycleOwner) {
-            if (it) {
-                findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
-                loginViewModel.onFragmentNagivated()
+            loginViewModel.navigateToSignup.observe(viewLifecycleOwner) {
+                if (it) {
+                    findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+                    loginViewModel.onFragmentNagivated()
+                }
             }
         }
         return binding.root
